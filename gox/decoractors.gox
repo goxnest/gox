@@ -1,0 +1,21 @@
+package model
+
+type Decorator struct {
+	Name string     // "Injectable", "Get", "Timeout"
+	Args []ast.Expr // e.g. "/:id", "2s"
+	Pos  token.Pos  // for errors with file:line
+}
+
+type Injectable struct {
+	Type    *types.Named
+	Deps    []*types.Var // struct fields to inject, in order
+	Methods []*ManagedMethod
+}
+
+type ManagedMethod struct {
+	Decl        *ast.FuncDecl
+	Decorators  []Decorator
+	ImplicitCtx bool // pass 4 added ctx
+	ImplicitErr bool // pass 4 added error
+	Plain       bool // @Plain: no rewrites
+}

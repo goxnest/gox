@@ -1,0 +1,16 @@
+package users
+
+@Controller("/users")
+type UserController struct {
+	svc *UserService
+}
+
+@Get("/:id")
+func (c *UserController) GetUser(ctx context.Context, req GetUserReq) (*User, error) {
+	return c.svc.FindByID(ctx, req.ID)
+}
+
+@Post("")
+func (c *UserController) Create(ctx context.Context, req CreateUserReq) (*User, error) {
+	return c.svc.Create(ctx, req)
+}
