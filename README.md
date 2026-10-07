@@ -118,7 +118,6 @@ About 24 weeks of part-time work to v0.1. Every phase ends with something usable
 - [ ] Should `throw X` be a keyword, or only the call form `throw(X)`?
 - [ ] Should generated files be committed, or ignored and always regenerated?
 - [ ] Stay on `net/http.ServeMux`, or write a router?
-- [ ] Licence.
 
 ## Repository layout (target)
 
@@ -151,3 +150,7 @@ go run . main.gox
 ## Contributing
 
 The project is in early design. Issues and discussion about the open questions are welcome.
+
+## License
+
+[MIT](./LICENSE)
